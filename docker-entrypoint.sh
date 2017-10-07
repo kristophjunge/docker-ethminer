@@ -10,4 +10,4 @@ echo "Starting miner"
 
 cd /opt/cpp-ethereum/build/ethminer
 
-./ethminer --farm-recheck 200 -G -S ${STRATUM} -FS ${FAILOVER_STRATUM} -O ${USERPASS} --cuda
+./ethminer --farm-recheck 200 -G -S ${STRATUM} -FS ${FAILOVER_STRATUM} -O ${USERPASS} --cuda >> /var/log/ethminer.log 2>&1

@@ -12,10 +12,11 @@ WORKDIR /opt/cpp-ethereum
 
 RUN git clone https://github.com/Genoil/cpp-ethereum.git .
 
-RUN ls -al
-
-RUN mkdir build; cd build && \
-    cmake -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON ..  && \
+RUN mkdir build && \
+    cd build && \
+    cmake -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON .. && \
     cmake --build .
 
-#CMD ["./bin/app"]
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+CMD ["/docker-entrypoint.sh"]
