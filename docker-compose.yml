@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  ethminer:
-    container_name: ethminer
+  ethminer_build:
+    container_name: ethminer_build
     build: .
     environment:
       STARTUP_DELAY: "${STARTUP_DELAY}"
