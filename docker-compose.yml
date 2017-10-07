@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  ethminer:
+    container_name: ethminer
+    build: .
+    environment:
+      STARTUP_DELAY: "${STARTUP_DELAY}"
+      USERPASS: "${USERPASS}"
+      STRATUM: "${STRATUM}"
+      FAILOVER_STRATUM: "${FAILOVER_STRATUM}"
+    volumes:
+      - "/var/log/ethminer.log:/var/log/ethminer.log"

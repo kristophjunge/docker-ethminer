@@ -1,0 +1,3 @@
+# Docker Ethminer
+
+Dockerized Ethminer.
