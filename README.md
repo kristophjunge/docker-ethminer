@@ -2,6 +2,9 @@
 
 Dockerized Ethminer.
 
+Using [improved version](https://github.com/ethereum-mining/ethminer) of Genoils Cuda Miner.
+
+
 ## Build And Push To DockerHub
 
 ```

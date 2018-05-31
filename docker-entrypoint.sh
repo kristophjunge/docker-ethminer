@@ -8,6 +8,6 @@ sleep ${STARTUP_DELAY}
 
 echo "Starting miner"
 
-cd /opt/cpp-ethereum/build/ethminer
+cd /opt/ethminer/bin
 
-./ethminer --farm-recheck 200 -G -S ${STRATUM} -FS ${FAILOVER_STRATUM} -O ${USERPASS} --cuda >> /var/log/ethminer.log 2>&1
+./ethminer -P stratum+ssl://${USERPASS}@${STRATUM} -P stratum+ssl://${USERPASS}@${FAILOVER_STRATUM} -U -RH --api-port -3333

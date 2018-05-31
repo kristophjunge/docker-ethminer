@@ -3,20 +3,18 @@ FROM nvidia/cuda
 MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
 
 RUN apt-get update && \
-    apt-get -y install ca-certificates git cmake --no-install-recommends && \
+    apt-get -y install ca-certificates curl --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
-RUN mkdir -p /opt/cpp-ethereum
+RUN mkdir -p /opt/ethminer
 
-WORKDIR /opt/cpp-ethereum
+WORKDIR /opt/ethminer
 
-RUN git clone https://github.com/Genoil/cpp-ethereum.git .
-
-RUN mkdir build && \
-    cd build && \
-    cmake -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON .. && \
-    cmake --build .
+RUN curl -s -L -o /tmp/ethminer.tar.gz https://github.com/ethereum-mining/ethminer/releases/download/v0.15.0.dev5/ethminer-0.15.0.dev5-Linux.tar.gz && \
+    tar -xzf /tmp/ethminer.tar.gz -C /opt/ethminer
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+EXPOSE 3333
 
 CMD ["/docker-entrypoint.sh"]

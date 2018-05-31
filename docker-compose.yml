@@ -9,5 +9,3 @@ services:
       USERPASS: "${USERPASS}"
       STRATUM: "${STRATUM}"
       FAILOVER_STRATUM: "${FAILOVER_STRATUM}"
-    volumes:
-      - "/var/log/ethminer.log:/var/log/ethminer.log"
